@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "Gene::Gene(int, int):GeneticImage.hpp">
+      </ContextState>
+      <ContextState
+         contextName = "Organism::scoreIt(unsigned int*):GeneticImage.hpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "imgReff[iimg]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "::-[ImageDrawer generateMetalSingleGene]():ImageDrawer.mm">
+      </ContextState>
+      <ContextState
+         contextName = "GeneticImage::generateGenePoolSquared():GeneticImage.hpp">
+      </ContextState>
+      <ContextState
+         contextName = "Gene::inCircle(int, int):GeneticImage.hpp">
+      </ContextState>
+      <ContextState
+         contextName = "GeneticImage::setParent(int, float):GeneticImage.hpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "parent">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
