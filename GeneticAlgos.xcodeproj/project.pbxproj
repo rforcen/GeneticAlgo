@@ -1,0 +1,421 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4E2CEF1D22801E7700BB8573 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2CEF1C22801E7700BB8573 /* AppDelegate.m */; };
+		4E2CEF2022801E7700BB8573 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4E2CEF1F22801E7700BB8573 /* ViewController.mm */; };
+		4E2CEF2222801E7800BB8573 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E2CEF2122801E7800BB8573 /* Assets.xcassets */; };
+		4E2CEF2522801E7800BB8573 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E2CEF2322801E7800BB8573 /* Main.storyboard */; };
+		4E2CEF2822801E7800BB8573 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2CEF2722801E7800BB8573 /* main.m */; };
+		4E2CEF352280296E00BB8573 /* GeneticImage.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4E2CEF332280296E00BB8573 /* GeneticImage.mm */; };
+		4E2CEF3722804C8900BB8573 /* reference.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E2CEF3622804C8900BB8573 /* reference.png */; };
+		4E2CEF3A22804CF800BB8573 /* ImageDrawer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4E2CEF3922804CF800BB8573 /* ImageDrawer.mm */; };
+		4E2CEF4022804D0A00BB8573 /* ImageBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2CEF3C22804D0A00BB8573 /* ImageBuffer.m */; };
+		4E2CEF4122804D0A00BB8573 /* ImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2CEF3E22804D0A00BB8573 /* ImageHelper.m */; };
+		4EAE4F4622843CEC0092A43D /* misc in Resources */ = {isa = PBXBuildFile; fileRef = 4EAE4F4522843CEC0092A43D /* misc */; };
+		4EB1AC7A228A9A9E009FFF9A /* dummy.metal in Sources */ = {isa = PBXBuildFile; fileRef = 4EB1AC79228A9A9E009FFF9A /* dummy.metal */; };
+		4EC53433228182E100CCD39C /* MetalDevice.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4EC53430228182E100CCD39C /* MetalDevice.mm */; };
+		4EC53434228182E100CCD39C /* GeneticAlgo.metal in Sources */ = {isa = PBXBuildFile; fileRef = 4EC53431228182E100CCD39C /* GeneticAlgo.metal */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4E2CEF1822801E7700BB8573 /* GeneticAlgos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeneticAlgos.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E2CEF1B22801E7700BB8573 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4E2CEF1C22801E7700BB8573 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4E2CEF1E22801E7700BB8573 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		4E2CEF1F22801E7700BB8573 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
+		4E2CEF2122801E7800BB8573 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4E2CEF2422801E7800BB8573 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4E2CEF2622801E7800BB8573 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E2CEF2722801E7800BB8573 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4E2CEF2922801E7800BB8573 /* GeneticAlgos.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GeneticAlgos.entitlements; sourceTree = "<group>"; };
+		4E2CEF30228020AB00BB8573 /* ga01.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = ga01.js; sourceTree = "<group>"; };
+		4E2CEF32228022EA00BB8573 /* ga02.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = ga02.py; sourceTree = "<group>"; };
+		4E2CEF332280296E00BB8573 /* GeneticImage.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = GeneticImage.mm; path = GeneticAlgos/GeneticImage.mm; sourceTree = SOURCE_ROOT; };
+		4E2CEF342280296E00BB8573 /* GeneticImage.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = GeneticImage.hpp; path = GeneticAlgos/GeneticImage.hpp; sourceTree = SOURCE_ROOT; };
+		4E2CEF3622804C8900BB8573 /* reference.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reference.png; sourceTree = "<group>"; };
+		4E2CEF3822804CF800BB8573 /* ImageDrawer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageDrawer.h; sourceTree = "<group>"; };
+		4E2CEF3922804CF800BB8573 /* ImageDrawer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ImageDrawer.mm; sourceTree = "<group>"; };
+		4E2CEF3C22804D0A00BB8573 /* ImageBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageBuffer.m; sourceTree = "<group>"; };
+		4E2CEF3D22804D0A00BB8573 /* ImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageHelper.h; sourceTree = "<group>"; };
+		4E2CEF3E22804D0A00BB8573 /* ImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageHelper.m; sourceTree = "<group>"; };
+		4E2CEF3F22804D0A00BB8573 /* ImageBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageBuffer.h; sourceTree = "<group>"; };
+		4E2CEF4222806F2500BB8573 /* timer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = timer.h; sourceTree = "<group>"; };
+		4E2CEF4322806F2500BB8573 /* Thread.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Thread.h; sourceTree = "<group>"; };
+		4EAE4F4522843CEC0092A43D /* misc */ = {isa = PBXFileReference; lastKnownFileType = text; path = misc; sourceTree = "<group>"; };
+		4EB1AC79228A9A9E009FFF9A /* dummy.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = dummy.metal; sourceTree = "<group>"; };
+		4EBAF8D022856AE800C5C3BA /* Screenshot 2019-05-10 at 10.15.29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screenshot 2019-05-10 at 10.15.29.png"; sourceTree = "<group>"; };
+		4EC53430228182E100CCD39C /* MetalDevice.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MetalDevice.mm; sourceTree = "<group>"; };
+		4EC53431228182E100CCD39C /* GeneticAlgo.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = GeneticAlgo.metal; sourceTree = "<group>"; };
+		4EC53432228182E100CCD39C /* MetalDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetalDevice.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4E2CEF1522801E7700BB8573 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4E2CEF0F22801E7700BB8573 = {
+			isa = PBXGroup;
+			children = (
+				4EAE4F4522843CEC0092A43D /* misc */,
+				4E2CEF1A22801E7700BB8573 /* GeneticAlgos */,
+				4E2CEF1922801E7700BB8573 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4E2CEF1922801E7700BB8573 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4E2CEF1822801E7700BB8573 /* GeneticAlgos.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4E2CEF1A22801E7700BB8573 /* GeneticAlgos */ = {
+			isa = PBXGroup;
+			children = (
+				4EC5342F228182E100CCD39C /* metal */,
+				4E2CEF3B22804D0A00BB8573 /* image */,
+				4E2CEF2F2280209200BB8573 /* inspirations */,
+				4E2CEF1B22801E7700BB8573 /* AppDelegate.h */,
+				4E2CEF1C22801E7700BB8573 /* AppDelegate.m */,
+				4E2CEF1E22801E7700BB8573 /* ViewController.h */,
+				4E2CEF1F22801E7700BB8573 /* ViewController.mm */,
+				4E2CEF2722801E7800BB8573 /* main.m */,
+				4E2CEF2122801E7800BB8573 /* Assets.xcassets */,
+				4E2CEF2322801E7800BB8573 /* Main.storyboard */,
+				4E2CEF2922801E7800BB8573 /* GeneticAlgos.entitlements */,
+				4E2CEF2622801E7800BB8573 /* Info.plist */,
+				4E2CEF3822804CF800BB8573 /* ImageDrawer.h */,
+				4E2CEF3922804CF800BB8573 /* ImageDrawer.mm */,
+				4E2CEF4322806F2500BB8573 /* Thread.h */,
+				4E2CEF4222806F2500BB8573 /* timer.h */,
+				4E2CEF342280296E00BB8573 /* GeneticImage.hpp */,
+				4E2CEF332280296E00BB8573 /* GeneticImage.mm */,
+			);
+			path = GeneticAlgos;
+			sourceTree = "<group>";
+		};
+		4E2CEF2F2280209200BB8573 /* inspirations */ = {
+			isa = PBXGroup;
+			children = (
+				4EC534242281763200CCD39C /* genetic image SS */,
+				4E2CEF3622804C8900BB8573 /* reference.png */,
+				4E2CEF30228020AB00BB8573 /* ga01.js */,
+				4E2CEF32228022EA00BB8573 /* ga02.py */,
+			);
+			path = inspirations;
+			sourceTree = "<group>";
+		};
+		4E2CEF3B22804D0A00BB8573 /* image */ = {
+			isa = PBXGroup;
+			children = (
+				4E2CEF3C22804D0A00BB8573 /* ImageBuffer.m */,
+				4E2CEF3D22804D0A00BB8573 /* ImageHelper.h */,
+				4E2CEF3E22804D0A00BB8573 /* ImageHelper.m */,
+				4E2CEF3F22804D0A00BB8573 /* ImageBuffer.h */,
+			);
+			path = image;
+			sourceTree = "<group>";
+		};
+		4EC534242281763200CCD39C /* genetic image SS */ = {
+			isa = PBXGroup;
+			children = (
+				4EBAF8D022856AE800C5C3BA /* Screenshot 2019-05-10 at 10.15.29.png */,
+			);
+			path = "genetic image SS";
+			sourceTree = "<group>";
+		};
+		4EC5342F228182E100CCD39C /* metal */ = {
+			isa = PBXGroup;
+			children = (
+				4EC53431228182E100CCD39C /* GeneticAlgo.metal */,
+				4EB1AC79228A9A9E009FFF9A /* dummy.metal */,
+				4EC53430228182E100CCD39C /* MetalDevice.mm */,
+				4EC53432228182E100CCD39C /* MetalDevice.h */,
+			);
+			path = metal;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4E2CEF1722801E7700BB8573 /* GeneticAlgos */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4E2CEF2C22801E7800BB8573 /* Build configuration list for PBXNativeTarget "GeneticAlgos" */;
+			buildPhases = (
+				4E2CEF1422801E7700BB8573 /* Sources */,
+				4E2CEF1522801E7700BB8573 /* Frameworks */,
+				4E2CEF1622801E7700BB8573 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GeneticAlgos;
+			productName = GeneticAlgos;
+			productReference = 4E2CEF1822801E7700BB8573 /* GeneticAlgos.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4E2CEF1022801E7700BB8573 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = voicesync;
+				TargetAttributes = {
+					4E2CEF1722801E7700BB8573 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 4E2CEF1322801E7700BB8573 /* Build configuration list for PBXProject "GeneticAlgos" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4E2CEF0F22801E7700BB8573;
+			productRefGroup = 4E2CEF1922801E7700BB8573 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4E2CEF1722801E7700BB8573 /* GeneticAlgos */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4E2CEF1622801E7700BB8573 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4EAE4F4622843CEC0092A43D /* misc in Resources */,
+				4E2CEF3722804C8900BB8573 /* reference.png in Resources */,
+				4E2CEF2222801E7800BB8573 /* Assets.xcassets in Resources */,
+				4E2CEF2522801E7800BB8573 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4E2CEF1422801E7700BB8573 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4EB1AC7A228A9A9E009FFF9A /* dummy.metal in Sources */,
+				4E2CEF2022801E7700BB8573 /* ViewController.mm in Sources */,
+				4EC53433228182E100CCD39C /* MetalDevice.mm in Sources */,
+				4E2CEF2822801E7800BB8573 /* main.m in Sources */,
+				4E2CEF3A22804CF800BB8573 /* ImageDrawer.mm in Sources */,
+				4E2CEF4022804D0A00BB8573 /* ImageBuffer.m in Sources */,
+				4E2CEF4122804D0A00BB8573 /* ImageHelper.m in Sources */,
+				4EC53434228182E100CCD39C /* GeneticAlgo.metal in Sources */,
+				4E2CEF1D22801E7700BB8573 /* AppDelegate.m in Sources */,
+				4E2CEF352280296E00BB8573 /* GeneticImage.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4E2CEF2322801E7800BB8573 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E2CEF2422801E7800BB8573 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4E2CEF2A22801E7800BB8573 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		4E2CEF2B22801E7800BB8573 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		4E2CEF2D22801E7800BB8573 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GeneticAlgos/GeneticAlgos.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = ALFNML2A4Q;
+				INFOPLIST_FILE = GeneticAlgos/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = voicesync.GeneticAlgos;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4E2CEF2E22801E7800BB8573 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GeneticAlgos/GeneticAlgos.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = ALFNML2A4Q;
+				INFOPLIST_FILE = GeneticAlgos/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = voicesync.GeneticAlgos;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4E2CEF1322801E7700BB8573 /* Build configuration list for PBXProject "GeneticAlgos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E2CEF2A22801E7800BB8573 /* Debug */,
+				4E2CEF2B22801E7800BB8573 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4E2CEF2C22801E7800BB8573 /* Build configuration list for PBXNativeTarget "GeneticAlgos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E2CEF2D22801E7800BB8573 /* Debug */,
+				4E2CEF2E22801E7800BB8573 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4E2CEF1022801E7700BB8573 /* Project object */;
+}

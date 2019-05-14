@@ -1,0 +1,163 @@
+@implementation ImageDrawer{
+BOOL running;
+long tCPU, tGPU;
+CVDisplayLinkRef displayLink;
+}
+
+CVReturn MyDisplayLinkCallback(CVDisplayLinkRef displayLink, const CVTimeStamp* now, const CVTimeStamp* outputTime, CVOptionFlags flagsIn, CVOptionFlags* flagsOut, void* displayLinkContext)
+{
+dispatch_sync(dispatch_get_main_queue(), ^{
+[(__bridge ImageDrawer*)displayLinkContext setNeedsDisplay:YES];
+});
+return kCVReturnSuccess;
+}
+
+-(void)startContDisplay {
+CVDisplayLinkCreateWithActiveCGDisplays(&displayLink);
+CVDisplayLinkSetOutputCallback(displayLink, &MyDisplayLinkCallback, (__bridge void*)self);
+CVDisplayLinkStart(displayLink);
+}
+-(void)stopContDisp {
+CVDisplayLinkStop(displayLink);
+}
+
+-(void)awakeFromNib {
+running=YES;
+//    [self startContDisplay];
+
+dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0ul), ^{
+while (self->running) {
+dispatch_sync(dispatch_get_main_queue(), ^{
+[self setNeedsDisplay:YES];
+});
+}
+});
+}
+
+
+float adjustScore(float score, int size) {  return  (score/255. * 100)/size;     }
+
+kernel void consolidateScores( // scores[i] = sum(per iorg cellScores
+const device word *cellScores[[buffer(0)]],
+device float*scores[[buffer(1)]],
+const device int*w[[buffer(2)]],
+const device int*h[[buffer(3)]],
+uint2  pos [[thread_position_in_grid]] )
+{
+int iOrg=pos.x, size=*w * *h;
+
+float s=0;
+for (int ii=0, ixi=size*iOrg; ii<size; ii++, ixi++) s+=cellScores[ixi];
+
+scores[iOrg]=adjustScore(s, size);
+}
+
+
+// generate cellSCores per x,y, iOrg
+kernel void geneticAlgo(const device color*target[[buffer(0)]],
+const device Gene*genes[[buffer(1)]],
+const device int*nGenePerOrg[[buffer(2)]], // n genes in organisms -> sqare arrangement
+device word *cellScores[[buffer(3)]],
+device atomic_uint*scores[[buffer(4)]],
+
+uint3  pos [[thread_position_in_grid]] )
+{
+int x=pos.x, y=pos.y, iOrg=pos.z; // indexes (x,y, iOrg)
+int w=genes[0].w, h=genes[0].h;
+int nGene=*nGenePerOrg, xyw=y*w+x; // target index
+uint iCell = xyw + (w*h * iOrg); // cellScore index
+
+Color topColor; // calc topColor of the organism -> set of nGene genes
+for (int i=0, iGene=iOrg*nGene; i<nGene; i++, iGene++) {
+Gene g=genes[iGene];
+if (g.w==0) break; // start of fill gene -> exit
+if (g.inCircle(x,y)) topColor=g.color;
+}
+
+auto sc = Color(target[xyw]) - topColor; // assign cell score (x,y, iOrg)
+//    cellScores[iCell] = sc;
+
+atomic_fetch_add_explicit(&scores[iOrg], sc, memory_order_relaxed);
+}
+
+// sum cellScores per organism
+float scores[nOrg];
+
+[md compileFunc:@"consolidateScores"];
+id<MTLBuffer>scoresBuffer=[md createBuffer:scores length:nOrg * sizeof(*scores)];
+
+[md setBufferParam:cellScoreBuff  index:0];
+[md setBufferParam:scoresBuffer   index:1]; // -> scores
+[md setIntParam:&w index:2];
+[md setIntParam:&h index:3];
+
+[md runThreadsWidth:nOrg height:1]; // nOrg x 1 -> scores
+[md copyContentsOn:scores buffer:scoresBuffer];
+
+if(0) { // test consolidateScores shader
+for (int o=0; o<nOrg; o++) {
+float stest=gi->organisms[o].scoreIt(gi->target), scalc=scoresFlt[o];
+assert(fabs(scalc-stest) < 1e-3);
+}
+}
+
+if(1) {
+for (int i=0; i<nOrg; i++)
+assert(fabs(scoresFlt[i]-scores[i]) < 1e-3);
+}
+
+// test cells
+#define TEST 0
+
+if(TEST) {
+for (int i=0; i<nCells; i++) {
+int o=i/(w*h), x=i%w, y=(i/w)%(h);
+Color topColor;
+for (auto g : gi->organisms[o].genes)
+if( g.inCircle(x, y) ) topColor=g.color;
+word cs=Color(gi->target[x+y*w]) - topColor, calcScore=cellScores[i];
+assert(cs == calcScore);
+}
+}
+
+if(TEST) { // test consolidateScores shader
+for (int o=0; o<nOrg; o++) {
+float stest=gi->organisms[o].scoreIt(gi->target), scalc=scores[o];
+assert(fabs(scalc-stest) < 1e-3);
+}
+}
+
+if(TEST) { // test cellScores vs. organism.scoreIt
+for (int o=0; o<nOrg; o++) {
+float s=0;
+for (int ii=0, ixi=w*h*o; ii<gi->size; ii++, ixi++) s+=cellScores[ixi];
+scores[o]=gi->organisms[o].adjustScore(s);
+
+if (TEST) {
+float stest=gi->organisms[o].scoreIt(gi->target), scalc=scores[o];
+assert(scalc == stest);
+}
+}
+}
+
+
+- (NSImage *)flipImage:(NSImage *)image { // on x axis
+NSImage *existingImage = image;
+NSSize existingSize = [existingImage size];
+NSSize newSize = NSMakeSize(existingSize.width, existingSize.height);
+NSImage *flipedImage = [[NSImage alloc] initWithSize:newSize] ;
+
+[flipedImage lockFocus];
+[[NSGraphicsContext currentContext] setImageInterpolation:NSImageInterpolationHigh];
+
+NSAffineTransform *t = [NSAffineTransform transform];
+[t translateXBy:0 yBy:existingSize.height];
+[t scaleXBy:1 yBy:-1];
+[t concat];
+
+[existingImage drawAtPoint:NSZeroPoint fromRect:NSMakeRect(0, 0, newSize.width, newSize.height) operation:NSCompositingOperationSourceOver fraction:1.0];
+
+[flipedImage unlockFocus];
+
+return flipedImage;
+}
