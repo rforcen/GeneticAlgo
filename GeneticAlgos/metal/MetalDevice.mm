@@ -11,12 +11,23 @@
 #import <math.h>
 
 
+@implementation Encoder
++(Encoder*)init:(id<MTLCommandQueue>)commandQueue  pipeline:(id<MTLComputePipelineState>)pipeline {
+    Encoder*e=[[super alloc]init];
+    e->commandQueue=commandQueue;
+    e->pipeline=pipeline;
+    return e;
+}
+@end
+
+
 @implementation MetalDevice
 
 +(instancetype)init {
     MetalDevice*md=[[super alloc]init];
     md->device=MTLCreateSystemDefaultDevice();
     md->library=[md->device newDefaultLibrary];
+    md->funcDict = [[NSMutableDictionary alloc] init];
     return md;
 }
 
@@ -129,16 +140,17 @@
     [commandEncoder setComputePipelineState:pipeline];
 }
 
--(void)compileFunc__org:(NSString*)func { // prepare shader
-    kernelFunction = [library newFunctionWithName:func];
-    pipeline = [device  newComputePipelineStateWithFunction:kernelFunction error:nil];
-    commandQueue = [device newCommandQueue];
-    commandBuffer = [commandQueue commandBuffer];
+-(void)compileFunc:(NSString*)func { // prepare shader
+    if (! funcDict[func])  // not used, create dict entry for this func (commandQueue, pipeline)
+        funcDict[func] = [Encoder init:[device newCommandQueue] pipeline:[device  newComputePipelineStateWithFunction:[library newFunctionWithName:func] error:nil]];
+    
+    pipeline = funcDict[func]->pipeline;
+    commandBuffer = [funcDict[func]->commandQueue commandBuffer];
     commandEncoder = [commandBuffer computeCommandEncoder];
     [commandEncoder setComputePipelineState:pipeline];
 }
 
--(void)compileFunc:(NSString*)func { // prepare shader
+-(void)compileFunc__noDIct:(NSString*)func { // prepare shader
     pipeline = [device  newComputePipelineStateWithFunction:[library newFunctionWithName:func] error:nil];
     commandBuffer = [[device newCommandQueue] commandBuffer];
     commandEncoder = [commandBuffer computeCommandEncoder];

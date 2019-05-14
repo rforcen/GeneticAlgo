@@ -10,7 +10,10 @@
 #import "GeneticImage.hpp"
 #import "image/ImageHelper.h"
 
-@implementation ViewController
+@implementation ViewController {
+    BOOL running;
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -18,6 +21,18 @@
     srand((uint)time(0));
     
     geneticImg = new GeneticImage([_imageReff image]);
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0ul), ^{
+        for (self->running=YES; self->running;) {
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                [self->_imageMetal refresh];
+            });
+        }
+    });
+}
+
+- (void)stop{
+    running=NO;
 }
 
 - (void)setStatus: (NSString*)stat {

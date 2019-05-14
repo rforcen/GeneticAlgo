@@ -15,24 +15,13 @@
 #import "GeneticImage.hpp"
 
 @implementation ImageDrawer{
-    BOOL running;
     long tCPU, tGPU;
 }
 
--(void)awakeFromNib { // never generate metal resources here, always in drawRect!!
-    running=YES;
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0ul), ^{
-        while (self->running) {
-            dispatch_sync(dispatch_get_main_queue(), ^{
-                [self setNeedsDisplay:YES];
-            });
-        }
-    });
-}
+-(void)awakeFromNib {} // never generate metal resources here, always in drawRect!!
 
--(void)stop {
-    running=NO;
+-(void)refresh {
+    [self setNeedsDisplay:YES];
 }
 
 -(void)logit {

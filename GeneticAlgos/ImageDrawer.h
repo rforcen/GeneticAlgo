@@ -12,6 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ImageDrawer : NSImageView
+-(void)refresh;
 @end
 
 NS_ASSUME_NONNULL_END

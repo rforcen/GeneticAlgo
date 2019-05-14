@@ -11,6 +11,16 @@
 
 #import <Metal/Metal.h>
 
+@interface Encoder : NSObject {
+    @public
+   id<MTLComputePipelineState> pipeline;
+   id<MTLCommandQueue> commandQueue;
+}
++(Encoder*)init:(id<MTLCommandQueue>)commandQueue  pipeline:(id<MTLComputePipelineState>)pipeline;
+@end
+
+
+
 @interface MetalDevice : NSObject { // single metal device object
     @public
     id<MTLDevice> device;
@@ -20,6 +30,7 @@
     id<MTLCommandBuffer> commandBuffer;
     id<MTLComputeCommandEncoder> commandEncoder;
     id<MTLComputePipelineState> pipeline;
+    NSMutableDictionary<NSString*, Encoder*> *funcDict;
     NSUInteger maxMem;
 }
 

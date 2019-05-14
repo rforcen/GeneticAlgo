@@ -7,11 +7,12 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "ImageDrawer.h"
 
 @interface ViewController : NSViewController
 @property (weak) IBOutlet NSImageView *imageReff;
-@property (weak) IBOutlet NSImageView *imageCalc;
 @property (weak) IBOutlet NSTextField *lblStatus;
+@property (weak) IBOutlet ImageDrawer *imageMetal;
 
 - (void)setStatus: (NSString*)stat;
 

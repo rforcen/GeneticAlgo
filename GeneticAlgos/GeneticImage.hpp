@@ -212,7 +212,9 @@ class GeneticImage {
         parent=Organism(w, h, INITIAL_GENES);
         prevScore=-1;
         
-        md = [MetalDevice init];
+        
+        md     = [MetalDevice init];
+        
         imgBuffer = [ImageBuffer initWithWidth:w Height:h]; // display buffer
         
         target  =(uint32_t*)[md newData: sizeBytes];
@@ -328,9 +330,6 @@ class GeneticImage {
         [md deleteData:szScores data:scores_uint];
         [md deleteData:szGene   data:genes];
         
-        scores_uint=nil; genes=nil;
-        genesBuff = scores_uintBuff = nil;
-        
         drawMetal();
     }
     
@@ -357,9 +356,6 @@ class GeneticImage {
         
         [md deleteData:szScore data:score];
         [md deleteData:szGene data:genes];
-        
-        scoreBuff = genesBuff = nil;
-        score=nil;  genes=nil;
     }
     
     void drawMetal() { // draw parent organism
@@ -380,8 +376,6 @@ class GeneticImage {
         [md deleteData:szGene data:genes];
         
         memcpy(imgBuffer.imgBuff32, bmp, sizeBytes); // copy to imgBuffer to display w/getImage
-        
-        genesBuff=nil;  genes=nil;
     }
     
     int w,h, size, sizeBytes;

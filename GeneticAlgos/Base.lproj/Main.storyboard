@@ -731,7 +731,8 @@
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="imageCalc" destination="H4Y-YF-B8x" id="dLq-W4-lIM"/>
+                        <outlet property="imageCalc" destination="H4Y-YF-B8x" id="Era-ut-5Uh"/>
+                        <outlet property="imageMetal" destination="H4Y-YF-B8x" id="j2z-8m-HWA"/>
                         <outlet property="imageReff" destination="IFV-Mh-0gr" id="Mvw-t9-i9b"/>
                         <outlet property="lblStatus" destination="1RJ-Xs-Wou" id="hho-XD-ri6"/>
                     </connections>
