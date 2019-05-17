@@ -1,3 +1,114 @@
+-(void)logit {
+//    NSLog(@"gen:%d, score:%.2f, genes:%ld (cpu=%ld, gpu=%ld)", geneticImg->generation, geneticImg->getScore(), geneticImg->parent.genes.size(), tCPU, tGPU);
+ViewController* vc = (ViewController*) [[[[NSApplication sharedApplication] mainWindow]windowController]contentViewController];
+
+[vc setStatus: [NSString stringWithFormat:@"generation:%d, score:%.3f, genes:%ld (cpu=%ld, gpu=%ld)ms", geneticImg->generation, geneticImg->getScore(), geneticImg->parent.genes.size(), tCPU, tGPU]];
+}
+
+- (void)drawRect:(NSRect)rect {
+[super drawRect:rect];
+
+if(geneticImg) {
+self->tGPU=Timer().chronoMilli([self](){ // GPU version
+//            geneticImg->generateMetal();
+});
+
+//        self->tCPU=Timer().chronoMilli([self](){ // CPU multithread version
+//            //                      geneticImg->generate();
+//        });
+[self logit];
+[[geneticImg->imgBuffer getimage] drawInRect:rect];
+}
+}
+
+tCPU=Timer().chronoMilli([vc](){ // GPU version
+[vc testPolyDraw];
+});
+
+geneticImg->cls();
+
+tGPU=Timer().chronoMilli([vc](){ // GPU version
+//        [vc testPolyDrawSetMetal];
+});
+
+
+- (void)testPolyDraw {
+auto g=geneticImg;
+
+PolygonDrawer().testMultiple(g->bmp, g->w, g->h, 0xff00ff00);
+uint score=g->scoreImageMetal();
+
+memcpy(g->imgBuffer.imgBuff32, g->bmp, g->sizeBytes); // copy to imgBuffer to display w/getImage
+}
+
+- (void)testPolyDrawMetal {
+auto g=geneticImg;
+
+auto md=g->md;
+
+int np=(rand()%10)+3, npSize=np*sizeof(point);
+
+point *points=(point*)[md newData:npSize];
+for (int i=0; i<np; i++) points[i]=point(rand()%g->w, rand()%g->h);
+
+auto pointsBuff=[md copyBuffer:points length:npSize];
+
+
+for (int j=0; j<300; j++) {
+color color=0xff000000|rand();
+for (int i=0; i<np; i++) points[i]=point(rand()%g->w, rand()%g->h);
+
+[md compileFunc:@"drawPoly"];
+
+[md setBufferParam:pointsBuff index:0];
+[md setIntParam   :&np        index:1];
+[md setBufferParam:g->bmpBuff index:2];
+[md setIntParam   :&g->w      index:3];
+[md setIntParam   :&g->h      index:4];
+[md setIntParam   :&color     index:5];
+
+[md runThreadsWidth:g->w height:g->h];
+}
+
+[md deleteData:npSize data:points];
+
+memcpy(g->imgBuffer.imgBuff32, g->bmp, g->sizeBytes); // copy to imgBuffer to display w/getImage
+}
+
+- (void)testPolyDrawSetMetal {
+auto g=geneticImg;
+
+auto md=g->md;
+
+int nSets=300, nPts=(rand() % 20)+5, pSize=nPts*nSets*sizeof(point), cSize=nSets*sizeof(color);
+
+point *points=(point*)[md newData:pSize];
+color *colors=(color*)[md newData:cSize];
+
+for (int i=0; i<nPts*nSets; i++) points[i]=point(rand()%g->w, rand()%g->h);
+for (int i=0; i<nSets; i++) colors[i]=0xff000000 | rand();
+
+auto pointsBuff=[md copyBuffer:points length:pSize];
+auto colorsBuff=[md copyBuffer:colors length:cSize];
+
+[md compileFunc:@"drawPolySet"];
+
+[md setBufferParam  :pointsBuff index:0];
+[md setIntParam     :&nPts      index:1];
+[md setBufferParam  :g->bmpBuff index:2];
+[md setIntParam     :&g->w      index:3];
+[md setIntParam     :&g->h      index:4];
+[md setBufferParam  :colorsBuff index:5];
+
+[md runThreadsWidth:nSets height:1];
+
+[md deleteData:pSize data:points];
+[md deleteData:cSize data:colors];
+
+memcpy(g->imgBuffer.imgBuff32, g->bmp, g->sizeBytes); // copy to imgBuffer to display w/getImage
+}
+
+
 @implementation ImageDrawer{
 BOOL running;
 long tCPU, tGPU;

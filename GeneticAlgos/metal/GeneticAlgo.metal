@@ -117,3 +117,19 @@ kernel void drawOrganism(      device color*imgBuffer[[buffer(0)]],
     }
     imgBuffer[x + y*w]=topColor.asColor;
 }
+
+
+void kernel
+scoreImage(device const color*bmp[[buffer(0)]],
+           device const color*reference[[buffer(1)]],
+           device const int &w[[buffer(2)]],
+           device atomic_uint &score[[buffer(3)]],
+           
+           uint2  pos [[thread_position_in_grid]]
+           )
+{
+    uint ix = pos.x + pos.y * w;
+    uint sc = Color(bmp[ix]) - Color(reference[ix]);
+    
+    atomic_fetch_add_explicit(&score, sc, memory_order_relaxed);
+}

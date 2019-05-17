@@ -102,26 +102,26 @@ class Organism:
             for g in random.sample(self.genes, int(len(self.genes) * MUTATION_CHANCE)):
                 g.mutate()
 
-if ADD_GENE_CHANCE > random.random():
-    self.genes.append(Gene(self.size))
-        if len(self.genes) > 0 and REM_GENE_CHANCE > random.random():
-            self.genes.remove(random.choice(self.genes))
+        if ADD_GENE_CHANCE > random.random():
+            self.genes.append(Gene(self.size))
+            if len(self.genes) > 0 and REM_GENE_CHANCE > random.random():
+                self.genes.remove(random.choice(self.genes))
 
-def drawImage(self):
-    image = Image.new('RGB', self.size, (255, 255, 255))
-    canvas = ImageDraw.Draw(image)
-    
-    for g in self.genes:
-        color = (g.color.r, g.color.g, g.color.b)
-        canvas.ellipse([g.pos.x-g.diameter, g.pos.y-g.diameter, g.pos.x+g.diameter, g.pos.y+g.diameter], outline = color, fill = color)
-        return image
+    def drawImage(self):
+        image = Image.new('RGB', self.size, (255, 255, 255))
+        canvas = ImageDraw.Draw(image)
+        
+        for g in self.genes:
+            color = (g.color.r, g.color.g, g.color.b)
+            canvas.ellipse([g.pos.x-g.diameter, g.pos.y-g.diameter, g.pos.x+g.diameter, g.pos.y+g.diameter], outline = color, fill = color)
+            return image
 
-    def getSave(self, generation):
-        """
-            Allows us to save an individual organism in case the program is stopped.
+        def getSave(self, generation):
             """
-        so = [generation]
-        return so + [g.getSave() for g in self.genes]
+                Allows us to save an individual organism in case the program is stopped.
+                """
+            so = [generation]
+            return so + [g.getSave() for g in self.genes]
 
 def loadSave(self, so):
     """

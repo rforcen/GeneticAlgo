@@ -34,6 +34,24 @@ public:
         }
         for (int t=0; t<nth; t++) threads[t].join();
     }
+    void run(std::function<void(int)> const& lambda) {
+        for (int t=0; t<nth; t++) {
+            threads[t]=thread([this, lambda, t](){
+                for (int i=from(t); i<to(t); i++)
+                    lambda(i);
+            });
+        }
+        for (int t=0; t<nth; t++) threads[t].join();
+    }
+    void run(std::function<void(void)> const& lambda) {
+        for (int t=0; t<nth; t++) {
+            threads[t]=thread([this, lambda, t](){
+                for (int i=from(t); i<to(t); i++)
+                    lambda();
+            });
+        }
+        for (int t=0; t<nth; t++) threads[t].join();
+    }
     int nth, segSz, size;
     thread *threads;
     

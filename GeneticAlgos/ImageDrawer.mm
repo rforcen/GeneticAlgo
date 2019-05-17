@@ -7,15 +7,15 @@
 //
 
 #import "ImageDrawer.h"
-#import "image/ImageBuffer.h"
+#import "image/ImageHelper.h"
 
 #import "timer.h"
 #import "ViewController.h"
 
-#import "GeneticImage.hpp"
+#import "GeneticGenerator.hpp"
 
 @implementation ImageDrawer{
-    long tCPU, tGPU;
+    long tCPU;
 }
 
 -(void)awakeFromNib {} // never generate metal resources here, always in drawRect!!
@@ -25,25 +25,23 @@
 }
 
 -(void)logit {
-    //    NSLog(@"gen:%d, score:%.2f, genes:%ld (cpu=%ld, gpu=%ld)", geneticImg->generation, geneticImg->getScore(), geneticImg->parent.genes.size(), tCPU, tGPU);
-    
     ViewController* vc = (ViewController*) [[[[NSApplication sharedApplication] mainWindow]windowController]contentViewController];
-    [vc setStatus: [NSString stringWithFormat:@"generation:%d, score:%.3f, genes:%ld (cpu=%ld, gpu=%ld)ms", geneticImg->generation, geneticImg->getScore(), geneticImg->parent.genes.size(), tCPU, tGPU]];
+    
+    [vc setStatus: [NSString stringWithFormat:@"generation:%d, score:%.3f, genes:%ld, time=%ld ms", ggPoly->generation, ggPoly->getScore(), ggPoly->parent.genes.size(), tCPU]];
+    //    [vc setStatus: [NSString stringWithFormat:@"generation:%d, score:%.3f, genes:%ld, time=%ld ms", ggCircle->generation, ggCircle->getScore(), ggCircle->parent.genes.size(), tCPU]];
 }
 
 - (void)drawRect:(NSRect)rect {
     [super drawRect:rect];
     
-    if(geneticImg) {
-        self->tGPU=Timer().chronoMilli([self](){ // GPU version
-            geneticImg->generateMetal();
-        });
-        
+    if(ggPoly) {
         self->tCPU=Timer().chronoMilli([self](){ // CPU multithread version
-            //                      geneticImg->generate();
+            ggPoly->generate();
+            //            ggCircle->generate();
         });
         [self logit];
-        [[geneticImg->imgBuffer getimage] drawInRect:rect];
+        [[ImageHelper convertBitmapRGBA8ToUIImage:(byte*)ggPoly->bmp withWidth:ggPoly->w withHeight:ggPoly->h] drawInRect:rect];
+        //        [[ImageHelper convertBitmapRGBA8ToUIImage:(byte*)ggCircle->bmp withWidth:ggCircle->w withHeight:ggCircle->h] drawInRect:rect];
     }
 }
 

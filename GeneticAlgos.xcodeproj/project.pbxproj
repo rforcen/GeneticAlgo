@@ -7,17 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4E2CEF1D22801E7700BB8573 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2CEF1C22801E7700BB8573 /* AppDelegate.m */; };
+		4E2CEF1D22801E7700BB8573 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4E2CEF1C22801E7700BB8573 /* AppDelegate.mm */; };
 		4E2CEF2022801E7700BB8573 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4E2CEF1F22801E7700BB8573 /* ViewController.mm */; };
 		4E2CEF2222801E7800BB8573 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E2CEF2122801E7800BB8573 /* Assets.xcassets */; };
 		4E2CEF2522801E7800BB8573 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E2CEF2322801E7800BB8573 /* Main.storyboard */; };
 		4E2CEF2822801E7800BB8573 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2CEF2722801E7800BB8573 /* main.m */; };
-		4E2CEF352280296E00BB8573 /* GeneticImage.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4E2CEF332280296E00BB8573 /* GeneticImage.mm */; };
 		4E2CEF3722804C8900BB8573 /* reference.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E2CEF3622804C8900BB8573 /* reference.png */; };
 		4E2CEF3A22804CF800BB8573 /* ImageDrawer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4E2CEF3922804CF800BB8573 /* ImageDrawer.mm */; };
 		4E2CEF4022804D0A00BB8573 /* ImageBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2CEF3C22804D0A00BB8573 /* ImageBuffer.m */; };
 		4E2CEF4122804D0A00BB8573 /* ImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2CEF3E22804D0A00BB8573 /* ImageHelper.m */; };
+		4E8F4246228D859600727F81 /* GeneticGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E8F4244228D859600727F81 /* GeneticGenerator.cpp */; };
 		4EAE4F4622843CEC0092A43D /* misc in Resources */ = {isa = PBXBuildFile; fileRef = 4EAE4F4522843CEC0092A43D /* misc */; };
+		4EB04E09228C0E5900826B7B /* PolygonDrawer.metal in Sources */ = {isa = PBXBuildFile; fileRef = 4EB04E08228C0E5900826B7B /* PolygonDrawer.metal */; };
+		4EC0597A228EA1C200480D8E /* Random.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4EC05979228EA1C200480D8E /* Random.cpp */; };
 		4EC53433228182E100CCD39C /* MetalDevice.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4EC53430228182E100CCD39C /* MetalDevice.mm */; };
 		4EC53434228182E100CCD39C /* GeneticAlgo.metal in Sources */ = {isa = PBXBuildFile; fileRef = 4EC53431228182E100CCD39C /* GeneticAlgo.metal */; };
 /* End PBXBuildFile section */
@@ -25,7 +27,7 @@
 /* Begin PBXFileReference section */
 		4E2CEF1822801E7700BB8573 /* GeneticAlgos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeneticAlgos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E2CEF1B22801E7700BB8573 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		4E2CEF1C22801E7700BB8573 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4E2CEF1C22801E7700BB8573 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		4E2CEF1E22801E7700BB8573 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		4E2CEF1F22801E7700BB8573 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		4E2CEF2122801E7800BB8573 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -35,8 +37,8 @@
 		4E2CEF2922801E7800BB8573 /* GeneticAlgos.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GeneticAlgos.entitlements; sourceTree = "<group>"; };
 		4E2CEF30228020AB00BB8573 /* ga01.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = ga01.js; sourceTree = "<group>"; };
 		4E2CEF32228022EA00BB8573 /* ga02.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = ga02.py; sourceTree = "<group>"; };
-		4E2CEF332280296E00BB8573 /* GeneticImage.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = GeneticImage.mm; path = GeneticAlgos/GeneticImage.mm; sourceTree = SOURCE_ROOT; };
-		4E2CEF342280296E00BB8573 /* GeneticImage.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = GeneticImage.hpp; path = GeneticAlgos/GeneticImage.hpp; sourceTree = SOURCE_ROOT; };
+		4E2CEF332280296E00BB8573 /* GeneticImage.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = GeneticImage.mm; path = GeneticAlgos/inspirations/GeneticImage.mm; sourceTree = SOURCE_ROOT; };
+		4E2CEF342280296E00BB8573 /* GeneticImage.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = GeneticImage.hpp; path = GeneticAlgos/inspirations/GeneticImage.hpp; sourceTree = SOURCE_ROOT; };
 		4E2CEF3622804C8900BB8573 /* reference.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reference.png; sourceTree = "<group>"; };
 		4E2CEF3822804CF800BB8573 /* ImageDrawer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageDrawer.h; sourceTree = "<group>"; };
 		4E2CEF3922804CF800BB8573 /* ImageDrawer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ImageDrawer.mm; sourceTree = "<group>"; };
@@ -46,8 +48,21 @@
 		4E2CEF3F22804D0A00BB8573 /* ImageBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageBuffer.h; sourceTree = "<group>"; };
 		4E2CEF4222806F2500BB8573 /* timer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = timer.h; sourceTree = "<group>"; };
 		4E2CEF4322806F2500BB8573 /* Thread.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Thread.h; sourceTree = "<group>"; };
+		4E7A6AF8228BFB750021CD3B /* PolygonDrawer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = PolygonDrawer.hpp; path = GeneticAlgos/inspirations/PolygonDrawer.hpp; sourceTree = SOURCE_ROOT; };
+		4E8F423B228D829C00727F81 /* Circle.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Circle.hpp; sourceTree = "<group>"; };
+		4E8F423E228D82A500727F81 /* polygon.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = polygon.hpp; sourceTree = "<group>"; };
+		4E8F4241228D82DE00727F81 /* Geo.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Geo.hpp; sourceTree = "<group>"; };
+		4E8F4243228D839F00727F81 /* Random.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Random.hpp; sourceTree = "<group>"; };
+		4E8F4244228D859600727F81 /* GeneticGenerator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GeneticGenerator.cpp; sourceTree = "<group>"; };
+		4E8F4245228D859600727F81 /* GeneticGenerator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GeneticGenerator.hpp; sourceTree = "<group>"; };
 		4EAE4F4522843CEC0092A43D /* misc */ = {isa = PBXFileReference; lastKnownFileType = text; path = misc; sourceTree = "<group>"; };
+		4EB04E08228C0E5900826B7B /* PolygonDrawer.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = PolygonDrawer.metal; sourceTree = "<group>"; };
 		4EBAF8D022856AE800C5C3BA /* Screenshot 2019-05-10 at 10.15.29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screenshot 2019-05-10 at 10.15.29.png"; sourceTree = "<group>"; };
+		4EC05979228EA1C200480D8E /* Random.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Random.cpp; sourceTree = "<group>"; };
+		4EC0597B228EBB0700480D8E /* Screenshot 2019-05-10 at 10.15.29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Screenshot 2019-05-10 at 10.15.29.png"; path = "../../../../../../../Desktop/Screenshot 2019-05-10 at 10.15.29.png"; sourceTree = "<group>"; };
+		4EC0597C228EBB0700480D8E /* Screenshot 2019-05-17 at 11.47.54.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screenshot 2019-05-17 at 11.47.54.png"; sourceTree = "<group>"; };
+		4EC0597D228EBB0700480D8E /* Screenshot 2019-05-17 at 11.21.39.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screenshot 2019-05-17 at 11.21.39.png"; sourceTree = "<group>"; };
+		4EC0597E228EBB0700480D8E /* Screenshot 2019-05-14 at 10.16.31.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screenshot 2019-05-14 at 10.16.31.png"; sourceTree = "<group>"; };
 		4EC53430228182E100CCD39C /* MetalDevice.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MetalDevice.mm; sourceTree = "<group>"; };
 		4EC53431228182E100CCD39C /* GeneticAlgo.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = GeneticAlgo.metal; sourceTree = "<group>"; };
 		4EC53432228182E100CCD39C /* MetalDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetalDevice.h; sourceTree = "<group>"; };
@@ -67,6 +82,7 @@
 		4E2CEF0F22801E7700BB8573 = {
 			isa = PBXGroup;
 			children = (
+				4E8F4239228D828A00727F81 /* geo */,
 				4EAE4F4522843CEC0092A43D /* misc */,
 				4E2CEF1A22801E7700BB8573 /* GeneticAlgos */,
 				4E2CEF1922801E7700BB8573 /* Products */,
@@ -88,7 +104,7 @@
 				4E2CEF3B22804D0A00BB8573 /* image */,
 				4E2CEF2F2280209200BB8573 /* inspirations */,
 				4E2CEF1B22801E7700BB8573 /* AppDelegate.h */,
-				4E2CEF1C22801E7700BB8573 /* AppDelegate.m */,
+				4E2CEF1C22801E7700BB8573 /* AppDelegate.mm */,
 				4E2CEF1E22801E7700BB8573 /* ViewController.h */,
 				4E2CEF1F22801E7700BB8573 /* ViewController.mm */,
 				4E2CEF2722801E7800BB8573 /* main.m */,
@@ -100,8 +116,6 @@
 				4E2CEF3922804CF800BB8573 /* ImageDrawer.mm */,
 				4E2CEF4322806F2500BB8573 /* Thread.h */,
 				4E2CEF4222806F2500BB8573 /* timer.h */,
-				4E2CEF342280296E00BB8573 /* GeneticImage.hpp */,
-				4E2CEF332280296E00BB8573 /* GeneticImage.mm */,
 			);
 			path = GeneticAlgos;
 			sourceTree = "<group>";
@@ -109,6 +123,9 @@
 		4E2CEF2F2280209200BB8573 /* inspirations */ = {
 			isa = PBXGroup;
 			children = (
+				4E7A6AF8228BFB750021CD3B /* PolygonDrawer.hpp */,
+				4E2CEF342280296E00BB8573 /* GeneticImage.hpp */,
+				4E2CEF332280296E00BB8573 /* GeneticImage.mm */,
 				4EC534242281763200CCD39C /* genetic image SS */,
 				4E2CEF3622804C8900BB8573 /* reference.png */,
 				4E2CEF30228020AB00BB8573 /* ga01.js */,
@@ -120,17 +137,35 @@
 		4E2CEF3B22804D0A00BB8573 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				4E2CEF3F22804D0A00BB8573 /* ImageBuffer.h */,
 				4E2CEF3C22804D0A00BB8573 /* ImageBuffer.m */,
 				4E2CEF3D22804D0A00BB8573 /* ImageHelper.h */,
 				4E2CEF3E22804D0A00BB8573 /* ImageHelper.m */,
-				4E2CEF3F22804D0A00BB8573 /* ImageBuffer.h */,
 			);
 			path = image;
+			sourceTree = "<group>";
+		};
+		4E8F4239228D828A00727F81 /* geo */ = {
+			isa = PBXGroup;
+			children = (
+				4E8F4241228D82DE00727F81 /* Geo.hpp */,
+				4E8F423B228D829C00727F81 /* Circle.hpp */,
+				4E8F423E228D82A500727F81 /* polygon.hpp */,
+				4E8F4243228D839F00727F81 /* Random.hpp */,
+				4EC05979228EA1C200480D8E /* Random.cpp */,
+				4E8F4244228D859600727F81 /* GeneticGenerator.cpp */,
+				4E8F4245228D859600727F81 /* GeneticGenerator.hpp */,
+			);
+			path = geo;
 			sourceTree = "<group>";
 		};
 		4EC534242281763200CCD39C /* genetic image SS */ = {
 			isa = PBXGroup;
 			children = (
+				4EC0597B228EBB0700480D8E /* Screenshot 2019-05-10 at 10.15.29.png */,
+				4EC0597E228EBB0700480D8E /* Screenshot 2019-05-14 at 10.16.31.png */,
+				4EC0597D228EBB0700480D8E /* Screenshot 2019-05-17 at 11.21.39.png */,
+				4EC0597C228EBB0700480D8E /* Screenshot 2019-05-17 at 11.47.54.png */,
 				4EBAF8D022856AE800C5C3BA /* Screenshot 2019-05-10 at 10.15.29.png */,
 			);
 			path = "genetic image SS";
@@ -140,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				4EC53431228182E100CCD39C /* GeneticAlgo.metal */,
+				4EB04E08228C0E5900826B7B /* PolygonDrawer.metal */,
 				4EC53430228182E100CCD39C /* MetalDevice.mm */,
 				4EC53432228182E100CCD39C /* MetalDevice.h */,
 			);
@@ -217,15 +253,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E8F4246228D859600727F81 /* GeneticGenerator.cpp in Sources */,
 				4E2CEF2022801E7700BB8573 /* ViewController.mm in Sources */,
 				4EC53433228182E100CCD39C /* MetalDevice.mm in Sources */,
 				4E2CEF2822801E7800BB8573 /* main.m in Sources */,
 				4E2CEF3A22804CF800BB8573 /* ImageDrawer.mm in Sources */,
 				4E2CEF4022804D0A00BB8573 /* ImageBuffer.m in Sources */,
+				4EB04E09228C0E5900826B7B /* PolygonDrawer.metal in Sources */,
+				4EC0597A228EA1C200480D8E /* Random.cpp in Sources */,
 				4E2CEF4122804D0A00BB8573 /* ImageHelper.m in Sources */,
 				4EC53434228182E100CCD39C /* GeneticAlgo.metal in Sources */,
-				4E2CEF1D22801E7700BB8573 /* AppDelegate.m in Sources */,
-				4E2CEF352280296E00BB8573 /* GeneticImage.mm in Sources */,
+				4E2CEF1D22801E7700BB8573 /* AppDelegate.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

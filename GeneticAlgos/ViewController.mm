@@ -7,20 +7,17 @@
 //
 
 #import "ViewController.h"
-#import "GeneticImage.hpp"
+#import "GeneticGenerator.hpp"
 #import "image/ImageHelper.h"
 
 @implementation ViewController {
     BOOL running;
-    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    srand((uint)time(0));
     
-    geneticImg = new GeneticImage([_imageReff image]);
+    srand((uint)time(0));
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0ul), ^{
         for (self->running=YES; self->running;) {
